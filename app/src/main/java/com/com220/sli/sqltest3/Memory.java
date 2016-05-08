@@ -83,7 +83,7 @@ public class Memory
     {
         memorytype = newMemoryType;
     }
-    public void setvoid(String newLocation)
+    public void setLocation(String newLocation)
     {
         location = newLocation;
     }
@@ -91,7 +91,7 @@ public class Memory
     {
         description = newDescription;
     }
-    public void setCreatedvoid(String newCreateddate)
+    public void setCreateddate(String newCreateddate)
     {
         createddate = newCreateddate;
     }
