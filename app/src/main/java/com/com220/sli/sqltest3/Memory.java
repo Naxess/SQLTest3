@@ -16,6 +16,11 @@ public class Memory
         //DEFAULT CONSTRUCTOR
     }
 
+    public Memory(String description)
+    {
+        this.description = description;
+    }
+
     public Memory(int ID, int JarID, String filepath, String file, String memorytype, String location, String description, String createddate)
     {
         this.ID = ID;

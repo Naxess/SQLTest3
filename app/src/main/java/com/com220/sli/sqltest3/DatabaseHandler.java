@@ -49,7 +49,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
             + JAR_COLOR + " TEXT,"
             + JAR_LOCATION + " TEXT,"
             + JAR_JARSTATUS + " TEXT,"
-            + JAR_OPENLOCATION + " TEXT,"
+            + JAR_OPENLOCATION + " TEXT"
             + ")";
     private static final String CREATE_MEM_TABLE = "CREATE TABLE " + TABLE_MEMORIES + "("
             + JAR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,"
@@ -172,12 +172,12 @@ public class DatabaseHandler extends SQLiteOpenHelper
         cv.put(MEMORY_DESCRIPTION, mem.getDescripton());
         cv.put(MEMORY_CREATEDDATE, mem.getCreateddate());
 
+        long id = db.insert(TABLE_MEMORIES, null, cv);
+
         for(long memId : memIds)
         {
-            //create
+            createMemoryToJarLink(id, memId);
         }
-
-        long id = db.insert(TABLE_MEMORIES, null, cv);
 
         return id;
     }

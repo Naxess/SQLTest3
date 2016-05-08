@@ -12,138 +12,145 @@
     tools:context="com.com220.sli.sqltest3.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DATABASE EXPERIMENT"
-        android:id="@+id/textView" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:text="Name"
         android:ems="10"
-        android:id="@+id/editText"
-        android:layout_below="@+id/textView"
+        android:id="@+id/edtx_name"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btn_addmem"
+        android:layout_alignEnd="@+id/btn_addmem" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="Description"
         android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
+        android:id="@+id/edtx_description"
+        android:layout_below="@+id/edtx_name"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
         android:id="@+id/editText3"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/edtx_description"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/edtx_description"
+        android:layout_alignEnd="@+id/edtx_description" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
         android:id="@+id/editText4"
         android:layout_below="@+id/editText3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/editText3"
+        android:layout_alignEnd="@+id/editText3" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
         android:id="@+id/editText5"
         android:layout_below="@+id/editText4"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/editText4"
+        android:layout_alignEnd="@+id/editText4" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
+        android:text="Add Jar"
+        android:id="@+id/btn_addjar"
         android:layout_below="@+id/editText5"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btn_viewalljars"
+        android:layout_alignEnd="@+id/btn_viewalljars" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
+        android:text="View All Jars"
+        android:id="@+id/btn_viewalljars"
+        android:layout_below="@+id/btn_addjar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
+        android:text="Update Jar"
+        android:id="@+id/btn_updatejar"
+        android:layout_below="@+id/btn_viewalljars"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btn_viewalljars"
+        android:layout_alignEnd="@+id/btn_viewalljars" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button4"
-        android:layout_below="@+id/button3"
+        android:text="Delete Jar"
+        android:id="@+id/btn_deletejar"
+        android:layout_below="@+id/btn_updatejar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btn_updatejar"
+        android:layout_alignEnd="@+id/btn_updatejar" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button5"
-        android:layout_alignBottom="@+id/button"
-        android:layout_centerHorizontal="true" />
+        android:text="Add Mem"
+        android:id="@+id/btn_addmem"
+        android:layout_above="@+id/btn_viewallmems"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button6"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_alignLeft="@+id/button5"
-        android:layout_alignStart="@+id/button5" />
+        android:text="View All Mems"
+        android:id="@+id/btn_viewallmems"
+        android:layout_alignBottom="@+id/btn_viewalljars"
+        android:layout_alignLeft="@+id/btn_addmem"
+        android:layout_alignStart="@+id/btn_addmem" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button7"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_alignLeft="@+id/button6"
-        android:layout_alignStart="@+id/button6" />
+        android:text="Update Mem"
+        android:id="@+id/btn_updatemem"
+        android:layout_alignBottom="@+id/btn_updatejar"
+        android:layout_alignLeft="@+id/btn_viewallmems"
+        android:layout_alignStart="@+id/btn_viewallmems" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button8"
-        android:layout_alignBottom="@+id/button4"
-        android:layout_alignLeft="@+id/button7"
-        android:layout_alignStart="@+id/button7" />
+        android:text="Delete Mem"
+        android:id="@+id/btn_deletemem"
+        android:layout_alignBottom="@+id/btn_deletejar"
+        android:layout_alignLeft="@+id/btn_updatemem"
+        android:layout_alignStart="@+id/btn_updatemem" />
 </RelativeLayout>

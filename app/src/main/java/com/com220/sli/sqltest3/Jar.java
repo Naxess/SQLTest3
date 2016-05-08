@@ -16,6 +16,19 @@ public class Jar
         //DEFAULT CONSTRUCTOR
     }
 
+    public Jar(String name)
+    {
+        this.name = name;
+    }
+
+    public Jar(String name, String opendate, String color, String jarStatus)
+    {
+        this.name = name;
+        this.opendate = opendate;
+        this.color = color;
+        this.jarStatus = jarStatus;
+    }
+
     public Jar(int ID, String opendate, String memories, String name, String color, String location, String jarStatus, String openLocation)
     {
         this.ID = ID;
