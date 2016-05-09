@@ -58,7 +58,7 @@ public class Memory
     {
         return location;
     }
-    public String getDescripton()
+    public String getDescription()
     {
         return description;
     }

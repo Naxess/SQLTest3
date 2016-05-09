@@ -125,6 +125,8 @@ public class DatabaseHandler extends SQLiteOpenHelper
                 aJar.setLocation(c.getString(c.getColumnIndex(JAR_LOCATION)));
                 aJar.setJarStatus(c.getString(c.getColumnIndex(JAR_JARSTATUS)));
                 aJar.setOpenLocation(c.getString(c.getColumnIndex(JAR_OPENLOCATION)));
+
+                jarList.add(aJar);
             }while(c.moveToNext());
         }
         return jarList;
@@ -169,7 +171,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
         cv.put(MEMORY_FILE, mem.getFile());
         cv.put(MEMORY_MEMORYTYPE, mem.getMemoryType());
         cv.put(MEMORY_LOCATION, mem.getLocation());
-        cv.put(MEMORY_DESCRIPTION, mem.getDescripton());
+        cv.put(MEMORY_DESCRIPTION, mem.getDescription());
         cv.put(MEMORY_CREATEDDATE, mem.getCreateddate());
 
         long id = db.insert(TABLE_MEMORIES, null, cv);
@@ -240,7 +242,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
         List<Memory> memoryList = new ArrayList<Memory>();
         String selectQuery = "SELECT * FROM " + TABLE_MEMORIES + " mem, "
                 + TABLE_JARS + " jrs, " + REF_TABLE + " rt WHERE jrs."
-                + JAR_NAME + " = '" + jarName + "'" + " AND mem."
+                + JAR_NAME + " = '" + jarName + "'" + " AND jrs."
                 + JAR_ID + " = " + "rt."
                 + REFID_JAR + " AND mem."
                 + JAR_ID + " = " + "rt."
@@ -277,7 +279,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
         cv.put(MEMORY_FILE, mem.getFile());
         cv.put(MEMORY_MEMORYTYPE, mem.getMemoryType());
         cv.put(MEMORY_LOCATION, mem.getLocation());
-        cv.put(MEMORY_DESCRIPTION, mem.getDescripton());
+        cv.put(MEMORY_DESCRIPTION, mem.getDescription());
         cv.put(MEMORY_CREATEDDATE, mem.getCreateddate());
 
         int aNum = db.update(TABLE_MEMORIES, cv, JAR_ID + " = ?", new String[]{String.valueOf(mem.getJarID())});
