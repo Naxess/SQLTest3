@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity// implements View.OnClickLis
 
     DatabaseHandler dbh;
 
-    Button addJarButton, addMemButton, viewAllJarsButton, viewAllMemsButton, updateJarButton, updateMemButton, viewMemsOfJarButton, deleteJarButton, deleteMemButton, clearTextButton;
+    Button addJarButton, addMemButton, viewAllJarsButton, viewAllMemsButton, updateJarButton, updateMemButton, viewMemsOfJarIDButton, viewMemsOfJarButton, deleteJarButton, deleteMemButton, clearTextButton;
     EditText jarNameEdit, memDescriptionEdit, idEdit;
 
     @Override
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity// implements View.OnClickLis
         viewAllMemsButton = (Button)findViewById(R.id.btn_viewallmems);
         updateJarButton = (Button)findViewById(R.id.btn_updatejar);
         updateMemButton  = (Button)findViewById(R.id.btn_updatemem);
+        viewMemsOfJarIDButton = (Button)findViewById(R.id.btn_viewallmemsofjarid);
         viewMemsOfJarButton = (Button)findViewById(R.id.btn_viewallmemsofjar);
         deleteJarButton  = (Button)findViewById(R.id.btn_deletejar);
         deleteMemButton = (Button)findViewById(R.id.btn_deletemem);
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity// implements View.OnClickLis
         viewAllMems();
         updateJar();
         updateMem();
+        viewMemsOfJarID();
         viewMemsOfJar();
         deleteJar();
         deleteMem();
@@ -178,7 +180,23 @@ public class MainActivity extends AppCompatActivity// implements View.OnClickLis
                 List<Memory> memoryList = dbh.getAllMemoriesByJar(name);
                 for(Memory aMem : memoryList)
                 {
-                    Log.d("Mems Descs of Jar", aMem.getDescription());
+                    Log.d("Mems Descs of JarName", aMem.getDescription());
+                }
+            }
+        });
+    }
+
+    public void viewMemsOfJarID()
+    {
+        viewMemsOfJarIDButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String name = idEdit.getText().toString();
+                long id = Long.parseLong(name);
+                List<Memory> memoryList = dbh.getAllMemoriesByJarID(id);
+                for(Memory aMem : memoryList)
+                {
+                    Log.d("Mems Descs of JarID", aMem.getDescription());
                 }
             }
         });

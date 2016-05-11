@@ -114,7 +114,7 @@
         android:layout_height="wrap_content"
         android:text="Delete Jar"
         android:id="@+id/btn_deletejar"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/btn_viewallmemsofjarid"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/space"
@@ -185,8 +185,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="..."
-        android:id="@+id/button"
+        android:text="Mems by Jar ID"
+        android:id="@+id/btn_viewallmemsofjarid"
         android:layout_below="@+id/btn_updatejar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -196,9 +196,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View Mems of Jar"
+        android:text="Mems by Jar Name"
         android:id="@+id/btn_viewallmemsofjar"
-        android:layout_alignTop="@+id/button"
+        android:layout_alignTop="@+id/btn_viewallmemsofjarid"
         android:layout_toRightOf="@+id/space"
         android:layout_alignRight="@+id/btn_updatemem"
         android:layout_alignEnd="@+id/btn_updatemem" />

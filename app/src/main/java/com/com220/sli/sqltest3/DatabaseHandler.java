@@ -269,6 +269,38 @@ public class DatabaseHandler extends SQLiteOpenHelper
         return memoryList;
     }
 
+    public List<Memory> getAllMemoriesByJarID(long id)
+    {
+        List<Memory> memoryList = new ArrayList<Memory>();
+        String selectQuery = "SELECT * FROM " + TABLE_MEMORIES + " mem, "
+                + TABLE_JARS + " jrs, " + REF_TABLE + " rt WHERE jrs."
+                + JAR_ID + " = " + id + " AND jrs."
+                + JAR_ID + " = " + "rt."
+                + REFID_JAR + " AND mem."
+                + JAR_ID + " = " + "rt."
+                + REFID_MEM;
+
+        //Log.e(LOG, selectQuery);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+        if(c.moveToFirst())
+        {
+            do {
+                Memory aMem = new Memory();
+                aMem.setJarID(c.getInt(c.getColumnIndex(JAR_ID)));
+                aMem.setFilepath(c.getString(c.getColumnIndex(MEMORY_FILEPATH)));
+                aMem.setFile(c.getString(c.getColumnIndex(MEMORY_FILE)));
+                aMem.setMemoryType(c.getString(c.getColumnIndex(MEMORY_MEMORYTYPE)));
+                aMem.setLocation(c.getString(c.getColumnIndex(MEMORY_LOCATION)));
+                aMem.setDescription(c.getString(c.getColumnIndex(MEMORY_DESCRIPTION)));
+                aMem.setCreateddate(c.getString(c.getColumnIndex(MEMORY_CREATEDDATE)));
+
+                memoryList.add(aMem);
+            } while(c.moveToNext());
+        }
+        return memoryList;
+    }
+
     //(5) UPDATE A MEMORY
     public int updateMemory(Memory mem)
     {
