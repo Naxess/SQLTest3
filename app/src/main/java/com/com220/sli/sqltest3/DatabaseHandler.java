@@ -209,6 +209,29 @@ public class DatabaseHandler extends SQLiteOpenHelper
         return aMem;
     }
 
+    public Jar getJar(long id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_JARS + " WHERE " + JAR_ID + " = " + id;
+
+        //Log.e(LOG, selectQuery);
+        Cursor c = db.rawQuery(selectQuery, null);
+        if (c != null)
+        {
+            c.moveToFirst();
+        }
+        Jar aJar = new Jar();
+        aJar.setID(c.getInt(c.getColumnIndex(JAR_ID)));
+        aJar.setOpendate(c.getString(c.getColumnIndex(JAR_OPENDATE)));
+        aJar.setMemories(c.getString(c.getColumnIndex(JAR_MEMORIES)));
+        aJar.setName(c.getString(c.getColumnIndex(JAR_NAME)));
+        aJar.setColor(c.getString(c.getColumnIndex(JAR_COLOR)));
+        aJar.setLocation(c.getString(c.getColumnIndex(JAR_LOCATION)));
+        aJar.setJarStatus(c.getString(c.getColumnIndex(JAR_JARSTATUS)));
+        aJar.setOpenLocation(c.getString(c.getColumnIndex(JAR_OPENLOCATION)));
+        return aJar;
+    }
+
     //(3) FETCH ALL THE MEMORIES
     public List<Memory> getAllMemories()
     {
