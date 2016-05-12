@@ -22,11 +22,13 @@ public class Memorymanager
     }
     public List<Memory> readByJarID(long jarId)
     {
+        dbh = new DatabaseHandler(context);
         List<Memory> memList = dbh.getAllMemoriesByJarID(jarId);
         return memList;
     }
     public Memory getMemory(long id)
     {
+        dbh = new DatabaseHandler(context);
         Memory aMem = dbh.getMemory(id);
         return aMem;
     }

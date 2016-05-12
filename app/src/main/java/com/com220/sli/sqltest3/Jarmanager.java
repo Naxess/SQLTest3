@@ -22,16 +22,19 @@ public class Jarmanager
     }
     public Jar getJar(long id)
     {
+        dbh = new DatabaseHandler(context);
         Jar aJar = dbh.getJar(id);
         return aJar;
     }
     public List<Jar> ReadAll()
     {
+        dbh = new DatabaseHandler(context);
         List<Jar> jarList = dbh.getAllJars();
         return jarList;
     }
     public void updateById(long id)
     {
+        dbh = new DatabaseHandler(context);
         Jar aJar = dbh.getJar(id);
         //String jarStatus_str = aJar.getJarStatus();
         //aJar.setJarStatus(jarStatus_str);
