@@ -1,16 +1,20 @@
 package com.com220.sli.sqltest3;
 
+import android.content.Context;
+
 import java.util.List;
 
 public class Memorymanager
 {
     DatabaseHandler dbh;
-    public Memorymanager()
+    Context context;
+    public Memorymanager(Context context)
     {
-
+        this.context = context;
     }
     public void createMemory(long jarId)
     {
+        dbh = new DatabaseHandler(context);
         String description = "<NULL>"; //placeholder
         Memory aMem = new Memory(description);
         long memId = dbh.createMemory(aMem, new long[]{jarId});
@@ -20,6 +24,11 @@ public class Memorymanager
     {
         List<Memory> memList = dbh.getAllMemoriesByJarID(jarId);
         return memList;
+    }
+    public Memory getMemory(long id)
+    {
+        Memory aMem = dbh.getMemory(id);
+        return aMem;
     }
 }
 

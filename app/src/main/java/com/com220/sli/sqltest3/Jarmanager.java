@@ -1,17 +1,21 @@
 package com.com220.sli.sqltest3;
 
+import android.content.Context;
+
 import java.util.List;
 
 public class Jarmanager
 {
     DatabaseHandler dbh;
+    Context context;
 
-    public Jarmanager()
+    public Jarmanager(Context context)
     {
-
+        this.context = context;
     }
-    public long createJar(String name)
+    public long addJar(String name)
     {
+        dbh = new DatabaseHandler(context);
         Jar aJar = new Jar(name);
         long id = dbh.createJar(aJar);
         return id;

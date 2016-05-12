@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity// implements View.OnClickLis
 {
 
     DatabaseHandler dbh;
+    Jarmanager jm = new Jarmanager(this);
+    Memorymanager mm = new Memorymanager(this);
+
 
     Button addJarButton, addMemButton, viewAllJarsButton, viewAllMemsButton, updateJarButton, updateMemButton, viewMemsOfJarIDButton, viewMemsOfJarButton, deleteJarButton, deleteMemButton, clearTextButton;
     EditText jarNameEdit, memDescriptionEdit, idEdit;
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity// implements View.OnClickLis
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        dbh = new DatabaseHandler(getApplicationContext());
+        dbh = new DatabaseHandler(this);
 
         addJarButton = (Button)findViewById(R.id.btn_addjar);
         addMemButton = (Button)findViewById(R.id.btn_addmem);
@@ -57,29 +60,25 @@ public class MainActivity extends AppCompatActivity// implements View.OnClickLis
         deleteJar();
         deleteMem();
         clearText();
+        test();
 
         /*
-        //CREATE JAR
-        Jar jar1 = new Jar("FIRST JAR");    //String name, String opendate, String color, String jarStatus
-        long jar1_id = dbh.createJar(jar1);
-
-        Jar jar2 = new Jar("SECOND JAR");
-        long jar2_id = dbh.createJar(jar2);
-
-        //CREATE MEMORY
-        Memory mem1 = new Memory("FIRST MEMORY OF FIRST JAR");  //String description
-        Memory mem2 = new Memory("SECOND MEMORY OF FIRST JAR");
-
-        Memory mem3 = new Memory("FIRST MEMORY OF SECOND JAR");
-        Memory mem4 = new Memory("SECOND MEMORY OF SECOND JAR");
-
-        //INSERT MEMORY INTO DATABASE UNDER RESPECTIVE JARS
-        long mem1_id = dbh.createMemory(mem1, new long[] {jar1_id});
-        long mem2_id = dbh.createMemory(mem2, new long[] {jar1_id});
-
-        long mem3_id = dbh.createMemory(mem3, new long[] {jar2_id});
-        long mem4_id = dbh.createMemory(mem4, new long[] {jar2_id});
+        Memorymanager mm = new Memorymanager();
+        mm.readByJarID(1);
         */
+    }
+
+    public void test()
+    {
+        updateJarButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                String name = jarNameEdit.getText().toString();
+                long id = jm.addJar(name);
+            }
+        });
     }
 
     public void addJar()
@@ -192,7 +191,15 @@ public class MainActivity extends AppCompatActivity// implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 String name = idEdit.getText().toString();
-                long id = Long.parseLong(name);
+                long id;
+                try
+                {
+                    id = Long.parseLong(name);
+                }
+                catch(NumberFormatException e)
+                {
+                    id = 1;
+                }
                 List<Memory> memoryList = dbh.getAllMemoriesByJarID(id);
                 for(Memory aMem : memoryList)
                 {
